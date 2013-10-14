@@ -6,8 +6,10 @@ Realización de la kata "Número con mayor cantidad de divisores" (http://www.so
 
   * node.js
   * npm
-  * commander.js (npm install commander)
-  * jasmine-node (npm install jasmine-node) [opcional]
+  * commander.js
+      npm install commander
+  * jasmine-node (opcional)
+      npm install jasmine-node
 
 ## Ejecución
 
