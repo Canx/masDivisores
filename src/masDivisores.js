@@ -21,16 +21,23 @@ function masDivisores(tope) {
 // -----------------------------------------------------------
 // devuelve un array con los factores del número solicitado
 function factores(num) {
-  var factores = [];
+  var f = [1];
+  var max = num / 2;
 
-  for (var i = 1; i<= num; i++) {
+  if (num == 1) return f;
+
+  for (var i = 2; i <= max; i++) {
       if (tieneDecimales(num/i)) {
-          factores.push(i);
+          f.push(i);
       }
   }
- 
-  return factores;
+
+  f.push(num);
+
+  return f;
 }
+
+
 
 // devuelve verdadero si tiene decimales
 function tieneDecimales(num) {

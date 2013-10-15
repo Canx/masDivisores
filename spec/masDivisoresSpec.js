@@ -15,7 +15,7 @@ describe("masDivisores", function() {
     expect(max.factores).toEqual([1,2,3,6]);
   });
 
-  it("returns 6 with 4 divisors with max = 100", function() {
+  it("returns 60 with 12 divisors with max = 100", function() {
     var max = masDivisores(100);
     expect(max.numero).toEqual(60);
     expect(max.total).toEqual(12);
