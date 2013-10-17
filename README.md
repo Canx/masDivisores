@@ -5,19 +5,27 @@ Realización de la kata "Número con mayor cantidad de divisores" (http://www.so
 ## Requisitos
 
   * node.js
+   
   * npm
+  
   * commander.js
-      npm install commander
+~~~~  
+    $ npm install commander
+~~~~
+
   * jasmine-node (opcional)
-      npm install jasmine-node
+~~~~
+    $ npm install jasmine-node
+~~~~
 
 ## Ejecución
-
+~~~~
     $ bin/masDivisores tope <numero>
-
+~~~~
 ## Tests
+~~~~
     $ jasmine-node spec/
-
+~~~~
 ## Por hacer
 
 Mejorar la eficiencia del algoritmo en la siguiente versión.
