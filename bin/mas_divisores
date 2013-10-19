@@ -1,0 +1,23 @@
+#!/usr/bin/env node
+
+var program = require('commander');
+var mas_divisores = require('../src/mas_divisores').mas_divisores;
+
+program
+  .command('tope <numero>')
+  .description('es el máximo número del que se calcularan divisores.')
+  .action(function(numero) {
+     var t_ini = (new Date).getTime();
+     var max = mas_divisores(numero);
+     var t_fin = (new Date).getTime();
+     var t = t_fin - t_ini;
+      
+     console.log(max.factores);
+     console.log("Numero:" + max.numero);
+     console.log("Divisores:" + max.total);
+     console.log("Tiempo (miliseg):" + t);
+  });
+
+program.parse(process.argv);
+
+if (!program.args.length) program.help();
