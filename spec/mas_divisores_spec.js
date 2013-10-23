@@ -54,3 +54,11 @@ describe("resumir", function() {
     expect(MD.resumir([2,2,2,3])).toEqual([[2,3],[3,1]]);
   });
 });
+
+describe("obtener_maximo", function() {
+  it("returns top value from fn(initial_number) to fn(final_number)", function() {
+    expect(MD.obtener_maximo(1, 3, function(i) { return i*2 }).value).toEqual(6);
+    expect(MD.obtener_maximo(1, 3, function(i) { return i*2 }).index).toEqual(3);
+  });
+});
+

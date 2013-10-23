@@ -2,26 +2,34 @@ module.exports = function() {
 
   // calcular el número con más divisores desde 1 hasta tope
   function mas_divisores(tope) {
-    var f = 1;
-    var f_nuevo;
-    var n = 1;
-    var i = 1;
-  
-    while(i<=tope) {
-      f_nuevo = total_divisores(i);
-  
-      if (f_nuevo >= f) {
-          f = f_nuevo;
-          n = i;
-      }
-      i++;
-    }
-  
+
+    var max = obtener_maximo(1, tope, total_divisores);
+
     return {
-       numero: n,
-       factores: divisores(n),
-       total: f
+      numero: max.index,
+      factores: divisores(max.index),
+      total: max.value
     }
+  }
+
+  // obtiene el máximo valor de fn(1) a fn(numero)
+  function obtener_maximo(inicio, final, fn) {
+    var new_value;
+    var max_index = 0, max_value = -Number.MAX_VALUE;
+    
+    for(var i = inicio; i <= final; i++) {
+      new_value = fn.call(this, i);
+      if (new_value >= max_value) {
+        max_value = new_value;
+        max_index = i;
+      }
+    }
+
+    return {
+      index: max_index,
+      value: max_value   
+    }
+
   }
 
   // calcular los divisores de num
@@ -101,6 +109,7 @@ module.exports = function() {
 
   return {
     mas_divisores: mas_divisores,
+    obtener_maximo: obtener_maximo,
     divisores: divisores,
     total_divisores: total_divisores,
     resumir: resumir,
