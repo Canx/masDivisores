@@ -2,9 +2,16 @@ module.exports = (function() {
   
   var md = {
 
-    // devuelve verdadero si tiene decimales
-    es_entero: function(num) {
-        return num % 1 == 0
+    // calcular el número con más divisores desde 1 hasta tope
+    mas_divisores: function(tope) {
+
+      var max = md.obtener_maximo(1, tope, md.total_divisores);
+
+      return {
+        numero: max.index,
+        factores: md.divisores(max.index),
+        total: max.value
+      }
     },
 
     // obtiene el máximo valor de fn(1) a fn(numero)
@@ -89,6 +96,7 @@ module.exports = (function() {
           factores.push(posible_divisor);
           num = division;
         };
+
         // TODO: Incrementar más eficientemente los posibles divisores primos
         posible_divisor = posible_divisor + 1;
       };
@@ -98,19 +106,11 @@ module.exports = (function() {
       return factores;
     },
     
-    // calcular el número con más divisores desde 1 hasta tope
-    mas_divisores: function(tope) {
-
-      var max = md.obtener_maximo(1, tope, md.total_divisores);
-
-      return {
-        numero: max.index,
-        factores: md.divisores(max.index),
-        total: max.value
-      }
+    
+    // devuelve verdadero si tiene decimales
+    es_entero: function(num) {
+        return num % 1 == 0
     }
-
-
   };
 
   return md;
